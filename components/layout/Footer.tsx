@@ -28,7 +28,7 @@ export default function Footer() {
                   />
                 </svg>
               </div>
-              <h3 className="text-xl font-bold">NoteSync</h3>
+              <h3 className="text-xl font-bold">Notedex</h3>
             </div>
             <p className="mt-4 text-sm text-gray-700 dark:text-gray-300 leading-relaxed">
               Your all-in-one solution for secure note-taking and organization.
@@ -76,7 +76,7 @@ export default function Footer() {
             </h3>
             <div className="mt-4 flex space-x-5">
               <motion.a
-                href="https://github.com/vinodjangid07"
+                href="https://github.com/goldyea"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-gray-700 dark:text-gray-300"
@@ -98,7 +98,7 @@ export default function Footer() {
                 </svg>
               </motion.a>
               <motion.a
-                href="https://www.instagram.com/pexel_ui/"
+                href="https://www.instagram.com/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-gray-700 dark:text-gray-300 hover:text-pink-600"
@@ -120,7 +120,7 @@ export default function Footer() {
                 </svg>
               </motion.a>
               <motion.a
-                href="mailto:infovinodjangid@gmail.com"
+                href="mailto:yvp.gold@gmail.com"
                 className="text-gray-700 dark:text-gray-300 hover:text-blue-600"
                 whileHover={{ scale: 1.1, y: -2 }}
                 transition={{ type: "spring", stiffness: 300 }}
@@ -164,19 +164,21 @@ export default function Footer() {
         <div className="mt-12 border-t border-border pt-8">
           <div className="flex flex-col md:flex-row justify-between items-start md:items-center">
             <p className="text-base text-gray-600 dark:text-gray-400">
-              &copy; {currentYear} NoteSync. All rights reserved.
+              &copy; {currentYear} Notedex. All rights reserved.
             </p>
 
             <div className="mt-4 md:mt-0 flex items-center">
-              <span className="text-sm text-gray-600 dark:text-gray-400">Designed & built by</span>
+              <span className="text-sm text-gray-600 dark:text-gray-400">
+                Designed & built by
+              </span>
               <motion.a
-                href="https://github.com/vinodjangid07"
+                href="https://github.com/goldyea"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="ml-1.5 text-sm font-medium text-primary hover:text-purple-500 flex items-center"
                 whileHover={{ scale: 1.05 }}
               >
-                vinodjangid07
+                goldyea
                 <svg
                   className="ml-1 h-4 w-4"
                   fill="currentColor"

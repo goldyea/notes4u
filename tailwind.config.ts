@@ -1,17 +1,20 @@
 import type { Config } from "tailwindcss";
 
 export default {
+  darkMode: ["class"],
   content: [
     "./pages/**/*.{js,ts,jsx,tsx,mdx}",
     "./components/**/*.{js,ts,jsx,tsx,mdx}",
     "./app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
-  darkMode: ["class"],
   theme: {
-  	extend: {
-  		colors: {
-        // Primary colors (Purple)
+    extend: {
+      colors: {
+        background: "var(--background)",
+        foreground: "var(--foreground)",
         primary: {
+          DEFAULT: "var(--primary)",
+          foreground: "var(--primary-foreground)",
           50: "var(--primary-50)",
           100: "var(--primary-100)",
           200: "var(--primary-200)",
@@ -23,11 +26,10 @@ export default {
           800: "var(--primary-800)",
           900: "var(--primary-900)",
           950: "var(--primary-950)",
-          DEFAULT: "var(--primary)",
-          foreground: "var(--primary-foreground)",
         },
-        // Secondary colors (Teal)
         secondary: {
+          DEFAULT: "var(--secondary)",
+          foreground: "var(--secondary-foreground)",
           50: "var(--secondary-50)",
           100: "var(--secondary-100)",
           200: "var(--secondary-200)",
@@ -39,34 +41,28 @@ export default {
           800: "var(--secondary-800)",
           900: "var(--secondary-900)",
           950: "var(--secondary-950)",
-          DEFAULT: "var(--secondary)",
-          foreground: "var(--secondary-foreground)",
         },
-        // Base colors
-        background: "var(--background)",
-        foreground: "var(--foreground)",
-        
-        // Border colors
-        border: {
-          DEFAULT: "var(--border)",
-          subtle: "var(--border-subtle)",
-          accent: "var(--border-accent)",
-          secondary: "var(--border-secondary)",
-        },
+        border: "var(--border)",
+        "border-subtle": "var(--border-subtle)",
+        "border-accent": "var(--border-accent)",
+        "border-secondary": "var(--border-secondary)",
       },
       backgroundImage: {
-        'card-1': 'var(--card-bg-1)',
-        'card-2': 'var(--card-bg-2)',
-        'card-3': 'var(--card-bg-3)',
-        'card-4': 'var(--card-bg-4)',
-        'card-5': 'var(--card-bg-5)',
-        'card-6': 'var(--card-bg-6)',
-        'card-7': 'var(--card-bg-7)',
-        'card-8': 'var(--card-bg-8)',
+        "card-1": "var(--card-bg-1)",
+        "card-2": "var(--card-bg-2)",
+        "card-3": "var(--card-bg-3)",
+        "card-4": "var(--card-bg-4)",
+        "card-5": "var(--card-bg-5)",
+        "card-6": "var(--card-bg-6)",
+        "card-7": "var(--card-bg-7)",
+        "card-8": "var(--card-bg-8)",
       },
-  		borderRadius: {
-  		}
-  	}
+      borderRadius: {
+        lg: "var(--radius)",
+        md: "calc(var(--radius) - 2px)",
+        sm: "calc(var(--radius) - 4px)",
+      },
+    },
   },
-  plugins: [],
+  plugins: [require("tailwindcss-animate")],
 } satisfies Config;

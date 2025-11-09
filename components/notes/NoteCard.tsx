@@ -1,12 +1,14 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { formatDistanceToNow } from 'date-fns';
+import { useRouter } from 'next/navigation';
 
 type Note = {
   id: string;
   title: string;
   content: string;
   created_at: string;
+  tags?: string[];
 };
 
 interface NoteCardProps {
@@ -17,6 +19,7 @@ interface NoteCardProps {
 
 export default function NoteCard({ note, onEdit, onDelete }: NoteCardProps) {
   const [isConfirmingDelete, setIsConfirmingDelete] = useState(false);
+  const router = useRouter();
   
   const getCardColor = () => {
     const colors = [
@@ -44,10 +47,20 @@ export default function NoteCard({ note, onEdit, onDelete }: NoteCardProps) {
     return formatDistanceToNow(new Date(dateString), { addSuffix: true });
   }
 
+  function handleCardClick(e: React.MouseEvent) {
+    // Don't navigate if clicking on action buttons
+    const target = e.target as HTMLElement;
+    if (target.closest('button')) {
+      return;
+    }
+    router.push(`/notes/${note.id}`);
+  }
+
   return (
     <motion.div 
       variants={item}
-      className={`relative h-64 rounded-2xl border-2 overflow-hidden backdrop-blur-sm transition-all duration-300 flex flex-col group ${getCardColor()}`}
+      onClick={handleCardClick}
+      className={`relative h-64 rounded-2xl border-2 overflow-hidden backdrop-blur-sm transition-all duration-300 flex flex-col group cursor-pointer ${getCardColor()}`}
       whileHover={{ 
         y: -6, 
         scale: 1.02,
@@ -58,8 +71,28 @@ export default function NoteCard({ note, onEdit, onDelete }: NoteCardProps) {
       }}
     >
       <div className="p-6 flex-grow overflow-hidden">
-        <h3 className="font-bold text-xl text-foreground mb-3 line-clamp-2 break-all leading-tight">{note.title}</h3>
-        <p className="text-foreground/70 dark:text-foreground/60 line-clamp-4 break-all leading-relaxed text-sm">{note.content}</p>
+        <h3 className="font-bold text-xl text-foreground mb-2 line-clamp-2 break-all leading-tight">{note.title}</h3>
+        
+        {/* Tags Display */}
+        {note.tags && note.tags.length > 0 && (
+          <div className="flex flex-wrap gap-1 mb-2">
+            {note.tags.slice(0, 3).map((tag) => (
+              <span
+                key={tag}
+                className="inline-flex items-center px-2 py-0.5 rounded-full text-xs bg-gray-200/80 dark:bg-gray-700/80 text-gray-700 dark:text-gray-300"
+              >
+                #{tag}
+              </span>
+            ))}
+            {note.tags.length > 3 && (
+              <span className="inline-flex items-center px-2 py-0.5 rounded-full text-xs bg-gray-200/80 dark:bg-gray-700/80 text-gray-700 dark:text-gray-300">
+                +{note.tags.length - 3}
+              </span>
+            )}
+          </div>
+        )}
+        
+        <p className="text-foreground/70 dark:text-foreground/60 line-clamp-3 break-all leading-relaxed text-sm">{note.content}</p>
       </div>
       
       <div className="px-6 py-4 bg-white/40 dark:bg-black/20 backdrop-blur-md border-t border-white/20 dark:border-white/10 flex justify-between items-center">
@@ -67,7 +100,7 @@ export default function NoteCard({ note, onEdit, onDelete }: NoteCardProps) {
           {formatTimeAgo(note.created_at)}
         </span>
         
-        <div className="flex space-x-2">
+        <div className="flex space-x-2" onClick={(e) => e.stopPropagation()}>
           {isConfirmingDelete ? (
             <>
               <motion.button 

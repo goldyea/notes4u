@@ -6,7 +6,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { createClient } from "@/utils/supabase/client";
-import {ModeToggle} from "../theme/ModeToggle"
+import { ModeToggle } from "../theme/ModeToggle";
 
 export default function Navbar() {
   const [user, setUser] = useState<{ id: string; email?: string } | null>(null);
@@ -80,7 +80,7 @@ export default function Navbar() {
       if (error) {
         console.log(
           "Profile fetch error, this is expected if user has no profile:",
-          error.message
+          error.message,
         );
         return;
       }
@@ -138,7 +138,7 @@ export default function Navbar() {
 
   const getDisplayName = () => {
     if (userProfile?.full_name) {
-      return userProfile.full_name.split(' ')[0];
+      return userProfile.full_name.split(" ")[0];
     }
     return user?.email?.split("@")[0] || "";
   };
@@ -168,7 +168,7 @@ export default function Navbar() {
   };
 
   return (
-    <nav className="sticky top-0 z-50 bg-background backdrop-blur-lg bg-opacity-80">
+    <nav className="sticky top-0 z-50 bg-background backdrop-blur-lg bg-opacity-80 border-b border-border">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center py-4">
           <motion.div
@@ -181,22 +181,13 @@ export default function Navbar() {
                 whileHover={{ rotate: 10 }}
                 className="w-10 h-10 rounded-lg flex items-center justify-center"
               >
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="h-6 w-6 text-primary-600"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"
-                  />
-                </svg>
+                <img
+                  src="/images/notedex.png"
+                  alt="Notedex Logo"
+                  className="w-10 h-10 object-cover rounded-lg"
+                />
               </motion.div>
-              <span className="text-xl font-semibold">NoteSync</span>
+              <span className="text-xl font-semibold">Notedex</span>
             </Link>
           </motion.div>
 
@@ -236,9 +227,7 @@ export default function Navbar() {
                     whileTap={{ scale: 0.98 }}
                   >
                     {getUserAvatar()}
-                    <span className="font-base">
-                      {getDisplayName()}
-                    </span>
+                    <span className="font-base">{getDisplayName()}</span>
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       className={`h-4 w-6 transition-transform duration-200 ${

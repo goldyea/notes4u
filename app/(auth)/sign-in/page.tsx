@@ -63,7 +63,7 @@ function SignInForm() {
                     </motion.div>
                     
                     <h2 className="mt-4 text-center text-3xl font-bold text-foreground">
-                        Sign in to NoteSync
+                        Sign in to Notedex
                     </h2>
                     <p className="mt-2 text-center text-sm text-foreground/70">
                         Access your notes from anywhere

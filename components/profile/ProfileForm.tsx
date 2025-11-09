@@ -66,12 +66,20 @@ export default function ProfileForm({ userId }: ProfileFormProps) {
         .single();
 
       if (error) {
-        console.error("Error fetching profile:", error);
+        // If profile doesn't exist yet, create it
+        if (error.code === 'PGRST116') {
+          await createProfile(userId);
+          return;
+        }
+        console.error("Error fetching profile:", {
+          message: error.message,
+          code: error.code,
+          details: error.details,
+        });
         throw error;
       }
 
       if (data) {
-        // setProfile(data);
         setFullName(data.full_name || "");
         setAvatarUrl(data.avatar_url);
 
@@ -80,11 +88,12 @@ export default function ProfileForm({ userId }: ProfileFormProps) {
           img.onerror = () => console.error("Image URL failed to load");
           img.src = data.avatar_url;
         }
-      } else {
-        await createProfile(userId);
       }
     } catch (error) {
-      console.error("Error in fetchProfile:", error);
+      console.error("Error in fetchProfile:", {
+        error: error instanceof Error ? error.message : String(error),
+        details: error,
+      });
     } finally {
       setLoading(false);
     }
@@ -335,10 +344,11 @@ export default function ProfileForm({ userId }: ProfileFormProps) {
                   <Image
                     src={avatarPreview || avatarUrl || ""}
                     alt={fullName || "Profile"}
-                    width={300}
-                    height={400}
-                    className="object-cover"
-                    unoptimized={!!avatarPreview}
+                    width={128}
+                    height={128}
+                    className="w-full h-full object-cover"
+                    quality={100}
+                    unoptimized
                     priority
                   />
                 ) : (

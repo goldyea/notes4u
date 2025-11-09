@@ -22,8 +22,8 @@ export default function PrivacyPolicy() {
           <section>
             <h2 className="text-2xl font-semibold text-gray-800 dark:text-gray-200 mb-4">Introduction</h2>
             <p className="text-gray-700 dark:text-gray-300">
-              Welcome to NoteSync (&quot;we&quot;, &quot;our&quot;, or &quot;us&quot;). We respect your privacy and are committed to protecting your personal data. 
-              This Privacy Policy explains how we collect, use, and safeguard your information when you use our NoteSync application.
+              Welcome to Notedex (&quot;we&quot;, &quot;our&quot;, or &quot;us&quot;). We respect your privacy and are committed to protecting your personal data. 
+              This Privacy Policy explains how we collect, use, and safeguard your information when you use our Notedex application.
             </p>
           </section>
           
@@ -59,7 +59,7 @@ export default function PrivacyPolicy() {
             <h2 className="text-2xl font-semibold text-gray-800 dark:text-gray-200 mb-4">How We Use Your Information</h2>
             <p className="text-gray-700 dark:text-gray-300 mb-4">We use your information to:</p>
             <ul className="list-disc pl-6 text-gray-700 dark:text-gray-300 space-y-1">
-              <li>Provide and maintain the NoteSync service</li>
+              <li>Provide and maintain the Notedex service</li>
               <li>Authenticate your account and protect your data</li>
               <li>Improve and personalize your experience</li>
               <li>Respond to your inquiries and provide support</li>
@@ -101,7 +101,7 @@ export default function PrivacyPolicy() {
           <section>
             <h2 className="text-2xl font-semibold text-gray-800 dark:text-gray-200 mb-4">Children&apos;s Privacy</h2>
             <p className="text-gray-700 dark:text-gray-300">
-              NoteSync is not intended for children under 13. We do not knowingly collect information from children under 13.
+              Notedex is not intended for children under 13. We do not knowingly collect information from children under 13.
             </p>
           </section>
           
@@ -115,7 +115,7 @@ export default function PrivacyPolicy() {
           <section>
             <h2 className="text-2xl font-semibold text-gray-800 dark:text-gray-200 mb-4">Your Consent</h2>
             <p className="text-gray-700 dark:text-gray-300">
-              By using NoteSync, you consent to our Privacy Policy and agree to its terms.
+              By using Notedex, you consent to our Privacy Policy and agree to its terms.
             </p>
           </section>
         </div>

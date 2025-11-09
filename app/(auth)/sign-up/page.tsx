@@ -64,7 +64,7 @@ export default function SignUpPage() {
                         Create an account
                     </h2>
                     <p className="mt-2 text-center text-sm text-foreground/70">
-                        Join NoteSync and start capturing your ideas
+                        Join Notedex and start capturing your ideas
                     </p>
                 </div>
                 

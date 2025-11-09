@@ -62,7 +62,7 @@ export default function Home() {
                 <span className="block text-primary-600">anytime, anywhere.</span>
               </h1>
               <p className="mt-4 text-lg text-gray-700 dark:text-gray-300">
-                NoteSync helps you organize your thoughts, save important information, and keep track of your tasks in one beautiful place. Access your notes from any device, anytime.
+                Notedex helps you organize your thoughts, save important information, and keep track of your tasks in one beautiful place. Access your notes from any device, anytime.
               </p>
               <div className="mt-10 flex space-x-0 md:space-x-4 flex-col md:flex-row">
                 <motion.div
@@ -101,7 +101,7 @@ export default function Home() {
               <div className="relative rounded-xl overflow-hidden shadow-2xl max-w-md">
                 <Image
                   src="/images/preview.png"
-                  alt="NoteSync App Preview"
+                  alt="Notedex App Preview"
                   width={600}
                   height={400}
                   quality={90}
@@ -203,7 +203,7 @@ export default function Home() {
               A great experience on any device
             </h2>
             <p className="mt-4 text-xl text-gray-700 dark:text-gray-300">
-              NoteSync&apos;s clean interface makes taking notes a pleasure, whether you&apos;re on desktop or mobile.
+              Notedex&apos;s clean interface makes taking notes a pleasure, whether you&apos;re on desktop or mobile.
             </p>
           </motion.div>
 
@@ -217,7 +217,7 @@ export default function Home() {
             <div className="rounded-xl overflow-hidden shadow-2xl border border-gray-200">
               <Image
                 src="/images/preview.png"
-                alt="NoteSync App Interface"
+                alt="Notedex App Interface"
                 width={1200}
                 height={800}
                 className="w-full h-auto"
@@ -246,7 +246,7 @@ export default function Home() {
               Ready to get started?
             </h2>
             <p className="mt-3 max-w-3xl text-lg leading-6 text-purple-100">
-              Join thousands of users who organize their lives with NoteSync. Sign up for free and start creating your first note today.
+              Join thousands of users who organize their lives with Notedex. Sign up for free and start creating your first note today.
             </p>
           </motion.div>
           <motion.div 
